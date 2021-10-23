@@ -19,7 +19,7 @@ namespace Controllers
     public class PersonController : ControllerBase
     {
         [HttpGet]
-        [Route("1")]
+        [Route("ApiPersona_Consultar_Todos")]
         public IActionResult GetAll()
         {
             var repository = new PersonRepository();
@@ -28,7 +28,7 @@ namespace Controllers
         } 
 
         [HttpGet]
-        [Route("2")]
+        [Route("ApiPersona_Consultar_Nombre,Correo,Anio")]
         public IActionResult GetField()
         {
             var repository = new PersonRepository();
@@ -37,7 +37,7 @@ namespace Controllers
         } 
 
         [HttpGet]
-        [Route("3")]
+        [Route("ApiPersona_Consultar_Genero")]
         public IActionResult GetByGender(char gender)
         {
             var repository = new PersonRepository();
@@ -46,7 +46,7 @@ namespace Controllers
         } 
 
         [HttpGet]
-        [Route("4")]
+        [Route("ApiPersona_Consultar_Edad")]
         public IActionResult GetByRangeAge(int Age, int age2)
         {
             var repository = new PersonRepository();
@@ -57,7 +57,7 @@ namespace Controllers
     
 
         [HttpGet]
-        [Route("5")]
+        [Route("ApiPersona_Consultar_Trabajos")]
         public IActionResult GetJobs()
         {
             var repository = new PersonRepository();
@@ -67,7 +67,7 @@ namespace Controllers
 
 
         [HttpGet]
-        [Route("6")]
+        [Route("ApiPersona_Consultar_Palabra")]
         public IActionResult GetContains(string palabra)
         {
             var repository = new PersonRepository();
@@ -76,7 +76,7 @@ namespace Controllers
         } 
 
         [HttpGet]
-        [Route("7")]
+        [Route("ApiPersona_Consultar_EdadesEspec")]
         public IActionResult GetByAger(int age1, int age2, int age3)
         {
             var repository = new PersonRepository();
@@ -86,7 +86,7 @@ namespace Controllers
 
 
          [HttpGet]
-        [Route("8")]
+        [Route("ApiPersona_Consultar_EdadMayor")]
         public IActionResult GetByMaxAge(int Edad)
         {
             var repository = new PersonRepository();
@@ -98,7 +98,7 @@ namespace Controllers
        
 
         [HttpGet]
-        [Route("9")]
+        [Route("ApiPersona_Consultar_EdadOrdered")]
         public IActionResult GetPersonsOrdered(int Age)
         {
             var repository = new PersonRepository();
@@ -107,7 +107,7 @@ namespace Controllers
         }
 
           [HttpGet]
-        [Route("10")]
+        [Route("ApiPersona_Consultar_EdadDesc")]
         public IActionResult GetPersonsOrderedDesc(int edad, int edad2)
         {
             var repository = new PersonRepository();
@@ -116,7 +116,7 @@ namespace Controllers
         }
 
         [HttpGet]
-        [Route("11")]
+        [Route("ApiPersona_Consultar_GeneroF")]
         public IActionResult CountPerson(char gender)
         {
             var repository = new PersonRepository();
@@ -125,7 +125,7 @@ namespace Controllers
         }
 
         [HttpGet]
-        [Route("12")]
+        [Route("ApiPersona_Consultar_Apellido")]
         public IActionResult ExistPerson(string Apellido)
         {
             var repository = new PersonRepository();
@@ -136,7 +136,7 @@ namespace Controllers
 
     
         [HttpGet]
-        [Route("13")]
+        [Route("ApiPersona_Consultar_TrabajoEspec")]
         public IActionResult GetPerson(string job, int age)
         {
             var repository = new PersonRepository();
@@ -147,29 +147,29 @@ namespace Controllers
        
 
         [HttpGet]
-        [Route("14")]
-        public IActionResult TakePerson(string job)
+        [Route("ApiPersona_Consultar_PersonasTrab")]
+        public IActionResult TakePerson(string job, int take)
         {
             var repository = new PersonRepository();
-            var persons = repository.TakePerson(job);
+            var persons = repository.TakePerson(job,take);
             return Ok(persons);
         }
 
         [HttpGet]
-        [Route("15")]
-        public IActionResult SkipPerson(string job)
+        [Route("ApiPersona_Consultar_OmitaTrabaj")]
+        public IActionResult SkipPerson(string job, int skip)
         {
             var repository = new PersonRepository();
-            var persons = repository.SkipPerson(job);
+            var persons = repository.SkipPerson(job, skip);
             return Ok(persons);
         }
 
         [HttpGet]
-        [Route("16")]
-        public IActionResult SkipTakePerson(string job)
+        [Route("ApiPersona_Consultar_OmitaRetorneTrabaj")]
+        public IActionResult SkipTakePerson(string job, int skip, int take)
         {
             var repository = new PersonRepository();
-            var persons = repository.SkipTakePerson(job);
+            var persons = repository.SkipTakePerson(job,skip,take);
             return Ok(persons);
         }
 

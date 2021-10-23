@@ -126,19 +126,15 @@ namespace QueryApi.Repositories
         }
 
         // retornar solamente unos elementos
-        public IEnumerable<Person> TakePerson(string job)
+        public IEnumerable<Person> TakePerson(string job, int take)
         {
-           
-            var take = 3;
             var query = _persons.Where(person => person.Job == job).Take(take);
             return query;
         }
 
         // retornar elementos saltando posición
-        public IEnumerable<Person> SkipPerson(string job)
+        public IEnumerable<Person> SkipPerson(string job, int skip)
         {
-           
-            var skip = 3;
             var query = _persons.Where(person => person.Job == job).Skip(skip);
             return query;
         }
@@ -151,11 +147,9 @@ namespace QueryApi.Repositories
             var query = _persons.Where(person => person.Job == job).TakeLast(take);
             return query;
         }
-        public IEnumerable<Person> SkipTakePerson(string job)
+        public IEnumerable<Person> SkipTakePerson(string job, int skip, int take)
         {
            
-            var skip = 3;
-            var take = 3;
             var query = _persons.Where(person => person.Job == job).Skip(skip).Take(take);
             return query;
         }
